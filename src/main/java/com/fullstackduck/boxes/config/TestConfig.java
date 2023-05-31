@@ -85,8 +85,8 @@ public class TestConfig implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		
 		//Teste Usuário
-		Usuario u1 = new Usuario(null, "Bruno", "123456789", "bruno@gmail.com", "7512345678", "aaaaaaaa", "Tomba", null, null, Status.ATIVO);
-		Usuario u2 = new Usuario(null, "José", "123456789", "jose@gmail.com", "7512345678", "bbbbbbbb", "Tomba", null, null, Status.ATIVO);
+		Usuario u1 = new Usuario(null, "Bruno", "123456789", "bruno@gmail.com", "7512345678", "$2a$12$0AOkkAhQ7GAPexQSVEORsuNiDEyQbnlrz6d6r1qV3cVTIp2/Ycwn2", "Tomba", null, null, Status.ATIVO);
+		Usuario u2 = new Usuario(null, "José", "123456789", "jose@gmail.com", "7512345678", "$2a$12$J3d7xWmHhkRxKGPC4AjZRuSLPFR6sx3h4vE9FxKf8azqbbhO0QRca", "Tomba", null, null, Status.ATIVO);
 		Usuario u3 = new Usuario(null, "Kelvin", "123456789", "kelvin@gmail.com", "7512345678", "cccccccc", "Tomba", null, null, Status.ATIVO);
 		Usuario u4 = new Usuario(null, "Lucas", "123456789", "lucas@gmail.com", "7512345678", "dddddddd", "Tomba", null, null, Status.ATIVO);
 		Usuario u5 = new Usuario(null, "Vinícius", "123456789", "vinicius@gmail.com", "7512345678", "eeeeeeee", "Tomba", null, null, Status.ATIVO);
