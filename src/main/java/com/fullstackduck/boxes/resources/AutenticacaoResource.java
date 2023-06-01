@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fullstackduck.boxes.entities.DadosAutenticacao;
+import com.fullstackduck.boxes.entities.Usuario;
+import com.fullstackduck.boxes.services.TokenService;
 
 import jakarta.validation.Valid;
 
@@ -20,12 +22,15 @@ public class AutenticacaoResource {
 	@Autowired
 	private AuthenticationManager manager;
 	
+	@Autowired
+	private TokenService tokenService;
+	
 	@PostMapping
 	public ResponseEntity efetuarLogin(@RequestBody @Valid DadosAutenticacao dados) {
 		var token = new UsernamePasswordAuthenticationToken(dados.email(), dados.senha());
 		var authentication = manager.authenticate(token);
 		
-		return ResponseEntity.ok().build();
+		return ResponseEntity.ok(tokenService.gerarToken((Usuario)authentication.getPrincipal()));
 	}
 
 }
