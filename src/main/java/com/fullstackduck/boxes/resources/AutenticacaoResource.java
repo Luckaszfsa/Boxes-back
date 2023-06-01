@@ -33,7 +33,7 @@ public class AutenticacaoResource {
 		
 		var tokenJWT = tokenService.gerarToken((Usuario)authentication.getPrincipal());
 		
-		return ResponseEntity.ok(new DadosTokenJWT(tokenJWT));
+		return ResponseEntity.ok(new DadosTokenJWT(tokenJWT)); 
 	}
 
 }
