@@ -1,4 +1,4 @@
-package com.fullstackduck.boxes.config;
+package com.fullstackduck.boxes.security;
 
 public record DadosTokenJWT(String token) {
 

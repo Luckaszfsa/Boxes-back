@@ -22,6 +22,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.fullstackduck.boxes.entities.Cliente;
 import com.fullstackduck.boxes.entities.Produto;
 import com.fullstackduck.boxes.entities.Usuario;
+import com.fullstackduck.boxes.repositories.UsuarioRepository;
 import com.fullstackduck.boxes.services.UsuarioService;
 
 import jakarta.validation.Valid;
@@ -34,6 +35,10 @@ import jakarta.validation.Valid;
 	
 		@Autowired
 		private UsuarioService service;
+		
+		@Autowired
+		private UsuarioRepository repository;
+		
 		
 		@GetMapping
 		public ResponseEntity<List<Usuario>> findAll(){
@@ -49,7 +54,7 @@ import jakarta.validation.Valid;
 		
 		@PostMapping
 		@Transactional
-		public ResponseEntity<Usuario> inserirUsuario(@Valid @RequestBody Usuario obj) {
+		public ResponseEntity<?> inserirUsuario(@Valid @RequestBody Usuario obj) {
 			obj = service.inserirUsuario(obj);
 			URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
 			return ResponseEntity.created(uri).body(obj);

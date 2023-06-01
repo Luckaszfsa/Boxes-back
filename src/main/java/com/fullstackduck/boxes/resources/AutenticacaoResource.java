@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fullstackduck.boxes.config.DadosTokenJWT;
 import com.fullstackduck.boxes.entities.DadosAutenticacao;
 import com.fullstackduck.boxes.entities.Usuario;
+import com.fullstackduck.boxes.security.DadosTokenJWT;
 import com.fullstackduck.boxes.services.TokenService;
 
 import jakarta.validation.Valid;

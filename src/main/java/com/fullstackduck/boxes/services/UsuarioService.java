@@ -43,6 +43,17 @@ public class UsuarioService {
 	
 	//insere usuario no banco de dados
 	public Usuario inserirUsuario(Usuario obj) {
+		// Verificar se o documento já está cadastrado
+	    Usuario usuario = repository.findByDocumento(obj.getDocumento());
+	    if (usuario != null) {
+	        throw new RuntimeException("O documento já está cadastrado.");
+	    }
+
+	    // Verificar se o e-mail já está cadastrado
+	    usuario = repository.findByEmail(obj.getEmail());
+	    if (usuario != null) {
+	        throw new RuntimeException("O e-mail já está cadastrado.");
+	    }
 		obj.setEndereco(null);
 		obj.setLogo(null);
 		obj.setStatus(Status.ATIVO);

@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fullstackduck.boxes.entities.enums.Status;
 import com.fullstackduck.boxes.entities.enums.StatusLicenca;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -47,6 +48,7 @@ public class Usuario implements Serializable,UserDetails {
 	
 	@NotBlank
 	@Size(max=18)
+	@Column(unique = true)
 	@Getter @Setter private String documento;
 	
 	@Size(max=11)
@@ -60,6 +62,7 @@ public class Usuario implements Serializable,UserDetails {
 	@NotBlank
 	@Email
 	@Size(max = 80)
+	@Column(unique = true)
 	@Getter @Setter private String email;
 	
 	@NotBlank
